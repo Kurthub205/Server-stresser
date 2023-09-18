@@ -1,4 +1,5 @@
 import psutil
+import time
 import threading
 
 print("Script Start!!!")
@@ -13,6 +14,12 @@ def stress_cpu_ram():
         data = bytearray(available_memory)
         for i in range(len(data)):
             data[i] = 0xFF
+
+        time.sleep(400)
+
+        data = None
+
+        time.sleep(2)
 
 cpu_ram_thread = threading.Thread(target=stress_cpu_ram)
 
